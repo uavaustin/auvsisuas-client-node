@@ -1,0 +1,40 @@
+{
+    "name": "auvsisuas-client",
+    "version": "0.0.0",
+    "description": "Communication library for the AUVSI SUAS Interoperability Server",
+    "main": "lib/auvsi-client.js",
+    "scripts": {
+        "postinstall": "npm run build",
+        "test-only": "npm run build && cross-env NODE_ENV=test nyc --all --reporter=lcov --reporter=text mocha --require source-map-support/register",
+        "test": "./scripts/manage-interop.sh create && ./scripts/manage-interop.sh wait && npm run test-only",
+        "clean": "rm -rf lib && mkdir lib",
+        "build": "npm run clean && babel src --out-dir lib --source-maps inline",
+        "build-no-map": "npm run clean && babel src --out-dir lib",
+        "prepublishOnly": "npm run build-no-map"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uavaustin/node-interop.git"
+    },
+    "author": "Unmanned Aerial Vehicle Team | The University of Texas at Austin",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/uavaustin/node-interop/issues"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-plugin-istanbul": "^4.1.4",
+        "babel-preset-es2015": "^6.24.1",
+        "chai": "^4.0.2",
+        "cross-env": "^5.0.1",
+        "mocha": "^3.4.2",
+        "nyc": "^11.0.3",
+        "source-map-support": "^0.4.15"
+    },
+    "bin": {
+        "manage-interop": "./scripts/manage-interop.sh"
+    },
+    "dependencies": {
+        "request": "^2.81.0"
+    }
+}

@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+    - '8'
+    - '7'
+    - '6'
+sudo: required
+dist: trusty
+services:
+    - docker
+install:
+    - npm install
+    - "./scripts/manage-interop.sh pull"
+script:
+    - npm test
+notifications:
+    email: false
+    slack:
+        secure: jfeSdJQt04GXO5LR608tgQexW9bpNXZw6aNivyklRGN/p+fqeZXjZixLRL6bOoHC0C57DXyEAzu0Qvta1P5Z6Uc6RjlWTBtd/SDfbHKa62u512ydG08XXHtDVpC1NtXdJXWM81Wo2kq5f9lszuxTm9vb5lGjCrGD7W4nqGjWv4DLCZ6BjOH8tCN3T3BIC8F46UyrOCI9Yti/derDtjXHT41VXDdGx8dhLSHCOx/pgPFU1Ke6w2Vo15eWotCs0k9fMQ99f59TMtfIPoOuFgVA9VgLmPh4lPCuk2QerhI2K4QhNVciFta+UA+LvBpsgkN3YGUdJMdARfX1b/cZJzYmV+ZYIA+klcQiy0XhhWtm+pLuuO0Z7XjQlEQNgKqer2RTPRE/FqStY1ZMYoRt/Ib2o1mhJmHO3k/MbeVq3avb0PYgdMD+/gcOY61a5oSg20PVa6fZOJ8wdmPpy6CYiudqU0iBzZU3sn4ZM0okpHBElwmBNBvjkhZMTLH6MeGRDnd8BWJ9XnXCNtOYi97VzA8DzYGy/4qU1XbH43jlODelsCI2Q3LFYSc52MP6LqiFQogAzLYRzGo3V6OgUm952J72iWdn2erNiRM+s6mvXBb1272DjkcksebMDvTkz2FqB/wzhKCP4cZzdFtiaJ8wd6ZdYexYD3a648tDQFtT90u3aRQ=

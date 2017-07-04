@@ -138,7 +138,7 @@ export default class AUVSIClient {
                 latitude: telem.lat,
                 longitude: telem.lon,
                 altitude_msl: telem.alt_msl,
-                uas_heading: telem.yaw,
+                uas_heading: telem.yaw
             },
             timeout
         }));

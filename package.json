@@ -4,10 +4,9 @@
     "description": "Communication library for the AUVSI SUAS Interoperability Server",
     "main": "lib/auvsi-client.js",
     "scripts": {
-        "postinstall": "npm run build",
         "test-only": "npm run build && cross-env NODE_ENV=test nyc --all --reporter=lcov --reporter=text mocha --require source-map-support/register",
         "test": "./scripts/manage-interop.sh create && ./scripts/manage-interop.sh wait && npm run test-only",
-        "clean": "shx rm -rf lib && shx mkdir lib",
+        "clean": "(shx rm -rf lib || true) && shx mkdir lib",
         "build": "npm run clean && babel src --out-dir lib --source-maps inline",
         "build-no-map": "npm run clean && babel src --out-dir lib",
         "build-docs": "esdoc",
@@ -28,6 +27,7 @@
     },
     "devDependencies": {
         "babel-cli": "^6.24.1",
+        "babel-plugin-add-module-exports": "^0.2.1",
         "babel-plugin-istanbul": "^4.1.4",
         "babel-preset-env": "^1.5.2",
         "chai": "^4.0.2",
@@ -41,5 +41,8 @@
     },
     "bin": {
         "manage-interop": "./scripts/manage-interop.sh"
+    },
+    "engines": {
+        "node": ">=6.11.0"
     }
 }

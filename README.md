@@ -9,6 +9,9 @@
 [![Test Coverage](
     https://codeclimate.com/github/uavaustin/auvsisuas-client-node/badges/coverage.svg)](
     https://codeclimate.com/github/uavaustin/auvsisuas-client-node/coverage)
+[![npm](
+    https://img.shields.io/npm/v/auvsisuas-client.svg)](
+    https://www.npmjs.com/package/auvsisuas-client)
 
 > Unmanned Aerial Vehicle Team | UT Austin
 

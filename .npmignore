@@ -2,9 +2,11 @@ node_modules/
 src/
 test/
 
+docs/
 coverage/
 .nyc_output/
 
+.esdoc.json
 .babelrc
 .nycrc
 .travis.yml

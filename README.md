@@ -3,6 +3,12 @@
 [![Build Status](
     https://travis-ci.org/uavaustin/auvsisuas-client-node.svg?branch=master)](
     https://travis-ci.org/uavaustin/auvsisuas-client-node)
+[![Code Climate](
+    https://codeclimate.com/github/uavaustin/auvsisuas-client-node/badges/gpa.svg)](
+    https://codeclimate.com/github/uavaustin/auvsisuas-client-node)
+[![Test Coverage](
+    https://codeclimate.com/github/uavaustin/auvsisuas-client-node/badges/coverage.svg)](
+    https://codeclimate.com/github/uavaustin/auvsisuas-client-node/coverage)
 
 > Unmanned Aerial Vehicle Team | UT Austin
 

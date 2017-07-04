@@ -16,6 +16,9 @@ Promise-based communication library for the
 [AUVSI SUAS Interoperability System](
 http://auvsi-suas-competition-interoperability-system.readthedocs.io)
 
+See the [documentation](http://docs.uavaustin.org/auvsisuas-client-node/) for
+more information.
+
 ## Installation
 
 To develop the library locally, clone the library and run `npm install` to

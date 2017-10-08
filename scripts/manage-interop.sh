@@ -20,7 +20,7 @@ delete_interop() {
 # Wait until the login page of the interop server is accessible
 wait_for_interop() {
     tries=0
-    max_tries=50
+    max_tries=20
 
     until $(curl --output /dev/null --silent --head --fail \
             http://localhost:8080/admin/login/?next=/); do

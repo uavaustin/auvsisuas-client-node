@@ -13,8 +13,10 @@ addons:
 install:
     - npm install
     - "./scripts/manage-interop.sh pull"
+before_script:
+    - travis_retry manage-interop create && manage-interop wait
 script:
-    - npm test
+    - npm run test-only
 after_success:
     - npm install -g codeclimate-test-reporter
     - codeclimate-test-reporter < coverage/lcov.info

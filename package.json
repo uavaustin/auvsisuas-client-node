@@ -4,8 +4,9 @@
     "description": "Communication library for the AUVSI SUAS Interoperability Server",
     "main": "lib/auvsi-client.js",
     "scripts": {
+        "test": "npm run start-server && npm run test-only",
         "test-only": "npm run build && cross-env NODE_ENV=test nyc --all --reporter=lcov --reporter=text mocha --require source-map-support/register",
-        "test": "./scripts/manage-interop.sh create && ./scripts/manage-interop.sh wait && npm run test-only",
+        "start-server": "./scripts/manage-interop.sh create && ./scripts/manage-interop.sh wait",
         "clean": "(shx rm -rf lib || true) && shx mkdir lib",
         "build": "npm run clean && babel src --out-dir lib --source-maps inline",
         "build-no-map": "npm run clean && babel src --out-dir lib",

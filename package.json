@@ -1,0 +1,49 @@
+{
+    "name": "auvsisuas-client",
+    "version": "0.1.1",
+    "description": "Communication library for the AUVSI SUAS Interoperability Server",
+    "main": "lib/auvsi-client.js",
+    "scripts": {
+        "test": "npm run start-server && npm run test-only",
+        "test-only": "npm run build && cross-env NODE_ENV=test nyc --all --reporter=lcov --reporter=text mocha --require source-map-support/register",
+        "start-server": "./scripts/manage-interop.sh create && ./scripts/manage-interop.sh wait",
+        "clean": "(shx rm -rf lib || true) && shx mkdir lib",
+        "build": "npm run clean && babel src --out-dir lib --source-maps inline",
+        "build-no-map": "npm run clean && babel src --out-dir lib",
+        "build-docs": "esdoc",
+        "prepublishOnly": "npm run build-no-map"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uavaustin/auvsisuas-client-node.git"
+    },
+    "author": "Unmanned Aerial Vehicle Team | The University of Texas at Austin",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/uavaustin/auvsisuas-client-node/issues"
+    },
+    "dependencies": {
+        "request": "^2.81.0",
+        "request-promise-native": "^1.0.4"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-plugin-istanbul": "^4.1.4",
+        "babel-preset-env": "^1.5.2",
+        "chai": "^4.0.2",
+        "chai-as-promised": "^7.1.0",
+        "cross-env": "^5.0.1",
+        "esdoc": "^0.5.2",
+        "mocha": "^3.4.2",
+        "nyc": "^11.0.3",
+        "shx": "^0.2.2",
+        "source-map-support": "^0.4.15"
+    },
+    "bin": {
+        "manage-interop": "./scripts/manage-interop.sh"
+    },
+    "engines": {
+        "node": ">=6.11.0"
+    }
+}

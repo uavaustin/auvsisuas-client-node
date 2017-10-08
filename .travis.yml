@@ -12,7 +12,7 @@ addons:
         repo_token: $CODE_CLIMATE_TOKEN
 install:
     - npm install
-    - "./scripts/manage-interop.sh pull"
+    - npm run pull-server
 before_script:
     - travis_retry npm run start-server
 script:

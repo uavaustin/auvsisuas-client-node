@@ -18,6 +18,20 @@ script:
 after_success:
     - npm install -g codeclimate-test-reporter
     - codeclimate-test-reporter < coverage/lcov.info
+before_deploy:
+    - shopt -s extglob
+    - GLOBIGNORE='.git'
+    - rm -rf !(LICENSE|README.md|docs)
+    - cp -r docs/* .
+    - rm -rf docs
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    on:
+        tags: true
+        condition: "$TRAVIS_TAG =~ ^v?([0-9]+\\.)*[0-9]+$"
+        node: '6'
 notifications:
     email: false
     slack:
